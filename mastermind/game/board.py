@@ -7,7 +7,7 @@ class Board:
 
     def __init__(self):
         
-        _piles = []
+        self._code = ""
 
 
     def apply(self):
