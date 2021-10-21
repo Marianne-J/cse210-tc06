@@ -1,48 +1,44 @@
-
-class Roster:
-    """A collection of players. The responsibility of Roster is to keep track of the players.
+class Player:
+    """A person taking part in a game. The responsibility of Player is to keep track of their identity and last move.
     
     Stereotype: 
         Information Holder
 
     Attributes:
-        _current (integer): The index of the current player.
-        _players (list): A list of Player objects.
+        _name (string): The player's name.
+        _move (Move): The player's last move.
     """
-    def __init__(self):
+    def __init__(self, name):
         """The class constructor.
         
         Args:
-            self (Roster): an instance of Roster.
+            self (Player): an instance of Player.
         """
-        self.current = -1
-        self.players = []
+        self._name = name
+        self._move = None
         
-    def add_player(self, player):
-        """Adds the given player to the roster
-        
-        Args:
-            self (Roster): An instance of Roster.
-            player (Player): The player object to add.
-        """
-        if player not in self.players:
-            self.players.append(player)
+    def get_move(self):
+        """Returns the player's last move (an instance of Move). If the player 
+        hasn't moved yet this method returns None.
 
-    def get_current(self):
-        """Gets the current player object.
-        
         Args:
-            self (Roster): An instance of Roster.
-        
-        Returns:
-            Player: The current player.
+            self (Player): an instance of Player.
         """
-        return self.players[self.current]
-    
-    def next_player(self):
-        """Advances the turn to the next player.
-        
+        return self._move
+
+    def get_name(self):
+        """Returns the player's name.
+
         Args:
-            self (Roster): An instance of Roster.
+            self (Player): an instance of Player.
         """
-        self.current = (self.current + 1) % len(self.players)
+        return self._name
+
+    def set_move(self, move):
+        """Sets the player's last move to the given instance of Move.
+
+        Args:
+            self (Player): an instance of Player.
+            move (Move): an instance of Move
+        """
+        self._move = move
