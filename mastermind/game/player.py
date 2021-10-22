@@ -8,6 +8,8 @@ class Player:
         _name (string): The player's name.
         _move (Move): The player's last move.
     """
+
+
     def __init__(self, name):
         """The class constructor.
         
@@ -16,6 +18,7 @@ class Player:
         """
         self._name = name
         self._move = None
+
         
     def get_move(self):
         """Returns the player's last move (an instance of Move). If the player 
@@ -26,6 +29,7 @@ class Player:
         """
         return self._move
 
+
     def get_name(self):
         """Returns the player's name.
 
@@ -33,6 +37,7 @@ class Player:
             self (Player): an instance of Player.
         """
         return self._name
+
 
     def set_move(self, move):
         """Sets the player's last move to the given instance of Move.
