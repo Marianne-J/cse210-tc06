@@ -54,14 +54,14 @@ class Director:
         for x in range(self._number_of_players):
             name = self._console.read("Enter a name for player " + str(x) + ": ")
             new_player = Player(name)
-            new_player.set_move(Move("----", "****"))
+            new_player.set_move(Move("----"))
 
             self._roster.add_player(new_player)
 
  
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
-        this case, that means checking if there are stones left and declaring the winner.
+        this case, that means getting current visual state from the board.
 
         Args:
             self (Director): An instance of Director.
@@ -83,18 +83,19 @@ class Director:
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In 
-        this case, that means updating the stored move in the current player and
-        checking if the game is over.
+        this case, that means updating the stored move in the current player, applying 
+        changes to board, and checking if the game is over.
 
         Args:
             self (Director): An instance of Director.
         """
         current_player = self._roster.get_current()
 
-        check_result = self._board.check_win()
-        current_player.set_move(self.last_guess, check_result)
+        move = Move(self.last_guess)
+        current_player.set_move(move)
+        self._board.apply(move, self._roster.current)
 
-        if check_result == "xxxx":
+        if self._board.check_win():
             self._game_running = False
             self._console.write("\n" + current_player.get_name() + " wins!")
 
