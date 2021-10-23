@@ -19,21 +19,40 @@ class Board:
         self._prepare()
 
 
-    def apply(self, move):
+    def apply(self, move, turn):
         """Applies the given move to the playing surface. 
         
         Args:
             self (Board): an instance of Board.
             move (Move): The move to apply.
         """
+        self._turn = turn
+
         if self._turn == 0:
             self._player_1_status[0] = move._guess
-            self._player_1_status[1] = move._hint
-            self._turn = 1
+            
+            hint = ""
+            for _ in range(4):
+                if move._guess[_] == self._code[_]:
+                    hint += "x"
+                elif move._guess[_] in self._code:
+                    hint += "o"
+                else:
+                    hint += "*"
+            self._player_1_status[1] = hint
+
         elif self._turn == 1:
             self._player_2_status[0] = move._guess
-            self._player_2_status[1] = move._hint
-            self._turn = 0
+            
+            hint = ""
+            for _ in range(4):
+                if move._guess[_] == self._code[_]:
+                    hint += "x"
+                elif move._guess[_] in self._code:
+                    hint += "o"
+                else:
+                    hint += "*"
+            self._player_2_status[1] = hint
 
 
     def check_win(self):
