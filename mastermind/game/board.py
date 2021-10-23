@@ -19,7 +19,15 @@ class Board:
 
 
     def apply(self):
-        pass
+        """Applies the given move to the playing surface. 
+        
+        Args:
+            self (Board): an instance of Board.
+            move (Move): The move to apply.
+        """
+        guess = move._guess()
+        player_1 = move._player_1_status()
+        player_2 = move._player_2_status()
 
 
     def check_win(self):
@@ -61,4 +69,11 @@ class Board:
 
 
     def _prepare(self):
-        pass
+        """Sets up the board with a random code. And adds hint placeholders
+        
+        Args:
+            self (Board): an instance of Board.
+        """
+        self._code = [format(random.randint(0000,9999), '04d')]
+        self._code.append('----')
+        self._code.append('****')
