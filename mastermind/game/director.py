@@ -52,7 +52,7 @@ class Director:
             self (Director): An instance of Director.
         """
         for x in range(self._number_of_players):
-            name = self._console.read("Enter a name for player " + str(x) + ": ")
+            name = self._console.read("Enter a name for player " + str(x + 1) + ": ")
             new_player = Player(name)
             new_player.set_move(Move("----"))
 
@@ -66,7 +66,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self._console.write("\n" + self._board.to_string())
+        self._console.write("\n" + self._board.to_string(self._roster._players))
 
     
     def _get_inputs(self):
@@ -93,7 +93,7 @@ class Director:
 
         move = Move(self.last_guess)
         current_player.set_move(move)
-        self._board.apply(move, self._roster.current)
+        self._board.apply(move, self._roster._current)
 
         if self._board.check_win():
             self._game_running = False

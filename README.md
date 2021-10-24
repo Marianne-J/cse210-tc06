@@ -36,3 +36,4 @@ root                    (project root folder)
 ---
 * # TODO: Add your names and emails here
 Stephen Sanders - stephen64s@byui.edu
+Ryan Brower - rbrower28@byui.edu

@@ -14,8 +14,8 @@ class Roster:
         Args:
             self (Roster): an instance of Roster.
         """
-        self.current = -1
-        self.players = []
+        self._current = 0
+        self._players = []
         
     def add_player(self, player):
         """Adds the given player to the roster
@@ -24,8 +24,8 @@ class Roster:
             self (Roster): An instance of Roster.
             player (Player): The player object to add.
         """
-        if player not in self.players:
-            self.players.append(player)
+        if player not in self._players:
+            self._players.append(player)
 
     def get_current(self):
         """Gets the current player object.
@@ -36,7 +36,7 @@ class Roster:
         Returns:
             Player: The current player.
         """
-        return self.players[self.current]
+        return self._players[self._current]
     
     def next_player(self):
         """Advances the turn to the next player.
@@ -44,4 +44,4 @@ class Roster:
         Args:
             self (Roster): An instance of Roster.
         """
-        self.current = (self.current + 1) % len(self.players)
+        self._current = (self._current + 1) % len(self._players)

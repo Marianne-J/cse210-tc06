@@ -83,8 +83,8 @@ class Board:
         Return:
             String
         """
-        player_1 = f"Player {players[0]}: {self._player_1_status[0]}, {self._player_1_status[1]}\n"
-        player_2 = f"Player {players[1]}: {self._player_2_status[0]}, {self._player_2_status[1]}\n"
+        player_1 = f"Player {players[0]._name}: {self._player_1_status[0]}, {self._player_1_status[1]}\n"
+        player_2 = f"Player {players[1]._name}: {self._player_2_status[0]}, {self._player_2_status[1]}\n"
 
         status = player_1 + player_2
         
@@ -99,8 +99,9 @@ class Board:
         Args:
             self (Board): an instance of Board.
         """
-        self._code = [format(random.randint(0000, 9999), '04d')]
+        self._code = format(random.randint(0000, 9999), '04d')
         self._player_1_status.append('----')
         self._player_1_status.append('****')
         self._player_2_status.append('----')
         self._player_2_status.append('****')
+
