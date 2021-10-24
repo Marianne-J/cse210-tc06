@@ -84,8 +84,8 @@ class Board:
         Return:
             String
         """
-        player_1 = f"Player {players[0]}: {self._player_1_status[0]}, {self._player_1_status[1]}\n"
-        player_2 = f"Player {players[1]}: {self._player_2_status[0]}, {self._player_2_status[1]}\n"
+        player_1 = f"Player {players[0].get_name()}: {self._player_1_status[0]}, {self._player_1_status[1]}\n"
+        player_2 = f"Player {players[1].get_name()}: {self._player_2_status[0]}, {self._player_2_status[1]}\n"
 
         status = player_1 + player_2
         
