@@ -34,5 +34,6 @@ root                    (project root folder)
 
 ## Authors
 ---
-* # TODO: Add your names and emails here
+Marianne Johnson - joh20041@byui.edu
 Stephen Sanders - stephen64s@byui.edu
+Ryan Brower - rbrower28@byui.edu
