@@ -66,7 +66,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self._console.write("\n" + self._board.to_string())
+        self._console.write("\n" + self._board.to_string(self._roster.players))
 
     
     def _get_inputs(self):

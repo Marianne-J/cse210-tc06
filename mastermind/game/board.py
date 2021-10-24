@@ -27,6 +27,7 @@ class Board:
             move (Move): The move to apply.
         """
         self._turn = turn
+        self._guess = move._guess
 
         if self._turn == 0:
             self._player_1_status[0] = move._guess
@@ -99,7 +100,11 @@ class Board:
         Args:
             self (Board): an instance of Board.
         """
-        self._code = [format(random.randint(0000, 9999), '04d')]
+        generated_code = str([random.randint(1000, 9999)])
+        generated_code = generated_code.replace('[', '')
+        generated_code = generated_code.replace(']', '')
+
+        self._code = generated_code
         self._player_1_status.append('----')
         self._player_1_status.append('****')
         self._player_2_status.append('----')
